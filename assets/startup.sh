@@ -24,3 +24,4 @@ ln -sf /opt/aptly/aptly.pub /root/.gnupg/pubring.gpg
 
 /sbin/my_init
 
+tail -f /dev/stdout
