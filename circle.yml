@@ -1,0 +1,12 @@
+build:
+  - docker info
+  - docker build -t "teonite/aptly:$CIRCLE_BUILD_NUM" .
+  - docker tag "teonite/aptly:$CIRCLE_BUILD_NUM" "teonite/aptly:latest"
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push "teonite/aptly:$CIRCLE_BUILD_NUM"
+      - docker push "teonite/aptly:latest"
