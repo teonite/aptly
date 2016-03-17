@@ -14,7 +14,7 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 
 # Update APT repository and install packages
 RUN apt-get -q update                  \
- && apt-get -y install aptly           \
+ && apt-get -y --force-yes install aptly           \
                        bzip2           \
                        gnupg           \
                        gpgv            \
